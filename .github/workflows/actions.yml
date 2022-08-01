@@ -25,3 +25,7 @@ jobs:
      steps: 
        - name: Execute Single Line
          run: cat /etc/os-release
+       - name: IP Address
+         run: hostname -I
+       - name: hostname
+         run: hostname
