@@ -100,4 +100,4 @@ jobs:
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
           notification-summary: Message from Repository created for General Mills Session, to the Teams Channel..Test1
           notification-color: 17a2b8
-          timezone: Asia/Kolkata 
+          timezone: Asia/Kolkata  
