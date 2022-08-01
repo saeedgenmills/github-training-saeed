@@ -21,7 +21,7 @@ on:
        - main
 jobs:
   first_job:
-     run_on: ubuntu-latest
+     runs-on: ubuntu-latest
      steps: 
        - name: Execute Single Line
          run: cat /etc/os-release
