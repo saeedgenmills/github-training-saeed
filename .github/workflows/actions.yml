@@ -17,8 +17,13 @@
 name: first_work
 on:
   push:
-     branches: 
-       - main
+#     branches: 
+#       - main
+  # enable manual executoin
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main 
 jobs:
   first_job:
      runs-on: ubuntu-latest
@@ -73,4 +78,26 @@ jobs:
         run: cat data.txt
     needs: 
       - installing_packages
-      - running_script_from_code                 
+      - running_script_from_code       
+  deploy_on_production:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs:
+      - download_artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy on Production
+        run: | 
+          echo Running Production Deployment                
+
+  # integration Teams Channel with GithUb Actions
+  GitHub_Actions_to_Teams:
+    runs-on: ubuntu-latest
+    steps:
+      - name: send message
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: Message from Repository created for General Mills Session, to the Teams Channel..Test1
+          notification-color: 17a2b8
+          timezone: Asia/Kolkata  
