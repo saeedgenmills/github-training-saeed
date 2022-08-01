@@ -61,14 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ls - 1
-        rum: ls -la 
+        run: ls -la 
       - name: download artfacts in different job
         uses: actions/download-artifact@v2
         with: 
           name: artifact
           path: ./
       - name: ls - 1
-        rum: ls -la           
+        run: ls -la           
       - name: read the artfacts file
         run: cat data.txt
     needs: 
