@@ -55,7 +55,7 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: artifact
+          name: artifact1
           path: data.txt       
   download_artifacts:
     runs-on: ubuntu-latest
